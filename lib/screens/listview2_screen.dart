@@ -12,6 +12,8 @@ class ListView2Screen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Type 2 ListView'),
+        elevation: 0,
+        backgroundColor: Colors.indigo,
       ),
       body: Center(
         // .separated or .builder creates a lazy loading list
@@ -19,7 +21,14 @@ class ListView2Screen extends StatelessWidget {
           itemCount: games.length,
           itemBuilder: (context, i) => ListTile(
             title: Text(games[i]),
-            trailing: const Icon(Icons.arrow_forward_ios_outlined),
+            trailing: const Icon(
+              Icons.arrow_forward_ios_outlined,
+              color: Colors.indigo,
+            ),
+            onTap: () {
+              final game = games[i];
+              print(game);
+            },
           ),
           separatorBuilder: (_, __) => const Divider(),
         ),
