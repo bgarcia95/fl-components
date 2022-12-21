@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             // push replacement: destroys previous screens. Example: after logging into the app.
             // Navigator.push(context, route);
 
-            Navigator.pushNamed(context, 'alert');
+            Navigator.pushNamed(context, 'listview1');
           },
         ),
         separatorBuilder: (_, __) => const Divider(),
