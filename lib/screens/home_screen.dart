@@ -15,7 +15,15 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) => ListTile(
           leading: const Icon(Icons.access_time_outlined),
           title: const Text('Route Name'),
-          onTap: () {},
+          onTap: () {
+            // final route = MaterialPageRoute(
+            //   builder: (context) => const ListView1Screen(),
+            // );
+            // push replacement: destroys previous screens. Example: after logging into the app.
+            // Navigator.push(context, route);
+
+            Navigator.pushNamed(context, 'alert');
+          },
         ),
         separatorBuilder: (_, __) => const Divider(),
       ),
