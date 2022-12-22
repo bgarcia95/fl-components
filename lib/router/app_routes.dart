@@ -40,13 +40,23 @@ class AppRoutes {
     ),
   ];
 
-  static Map<String, Widget Function(BuildContext)> routes = {
-    'home': (context) => const HomeScreen(),
-    'listview1': (context) => const ListView1Screen(),
-    'listview2': (context) => const ListView2Screen(),
-    'alert': (context) => const AlertScreen(),
-    'card': (context) => const CardScreen(),
-  };
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+    Map<String, Widget Function(BuildContext)> appRoutes = {};
+
+    for (final option in menuOptions) {
+      appRoutes.addAll({option.route: (context) => option.screen});
+    }
+
+    return appRoutes;
+  }
+
+  // static Map<String, Widget Function(BuildContext)> routes = {
+  //   'home': (context) => const HomeScreen(),
+  //   'listview1': (context) => const ListView1Screen(),
+  //   'listview2': (context) => const ListView2Screen(),
+  //   'alert': (context) => const AlertScreen(),
+  //   'card': (context) => const CardScreen(),
+  // };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     print(settings);
