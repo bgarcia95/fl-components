@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 
+import 'package:fl_components/router/app_routes.dart';
+import 'package:fl_components/theme/app_theme.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final menuOptions = AppRoutes.menuOptions;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Components'),
-        elevation: 0,
       ),
       body: ListView.separated(
-        itemCount: 100,
-        itemBuilder: (context, index) => ListTile(
-          leading: const Icon(Icons.access_time_outlined),
-          title: const Text('Route Name'),
+        itemCount: AppRoutes.menuOptions.length,
+        itemBuilder: (context, i) => ListTile(
+          leading: Icon(
+            menuOptions[i].icon,
+            color: AppTheme.primaryColor,
+          ),
+          title: Text(menuOptions[i].title),
           onTap: () {
             // final route = MaterialPageRoute(
             //   builder: (context) => const ListView1Screen(),
@@ -22,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             // push replacement: destroys previous screens. Example: after logging into the app.
             // Navigator.push(context, route);
 
-            Navigator.pushNamed(context, 'listview1');
+            Navigator.pushNamed(context, menuOptions[i].route);
           },
         ),
         separatorBuilder: (_, __) => const Divider(),
