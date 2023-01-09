@@ -18,6 +18,25 @@ class InputsScreen extends StatelessWidget {
               labelText: 'Name',
               hintText: 'User name',
             ),
+            SizedBox(height: 30),
+            CustomInputField(
+              labelText: 'Lastname',
+              hintText: 'User last name',
+            ),
+            SizedBox(height: 30),
+            CustomInputField(
+              labelText: 'Email',
+              hintText: 'User email',
+              keyboardType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: 30),
+            CustomInputField(
+              labelText: 'Password',
+              hintText: 'User password',
+              keyboardType: TextInputType.visiblePassword,
+              obscureText: true,
+            ),
+            SizedBox(height: 30),
           ],
         ),
       ), // works as a listview but instead of many widgets we just have one
